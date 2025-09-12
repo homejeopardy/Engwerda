@@ -95,8 +95,7 @@
             
             <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Latest Projects</h2>
             <div id="latestProjectsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Latest projects will be dynamically added here -->
-            </div>
+                </div>
 
             <section class="bg-white p-6 md:p-8 rounded-xl shadow-lg mt-8">
                 <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Contact Us</h2>
@@ -138,7 +137,7 @@
                     <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-md">
                         <img src="images/nathan.png" alt="Nathan Bennett-Crump" class="w-32 h-32 rounded-full object-cover mb-4">
                         <h3 class="font-bold text-xl text-gray-700">Nathan Bennett-Crump</h3>
-                        <p class="text-gray-500">CMO, CAO</p>
+                        <p class="text-gray-500">Assistant Producer, Graphic Design lead</p>
                     </div>
                     <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-md">
                         <img src="images/b-c.png" alt="B-C Web" class="w-32 h-32 rounded-full object-cover mb-4">
@@ -194,8 +193,7 @@
         <div id="projects-view" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Filmography</h2>
             <div id="projectsContainer" class="space-y-8">
-                <!-- Project cards will be loaded here dynamically -->
-            </div>
+                </div>
             <div class="mt-8 pt-6 border-t border-gray-200 text-center">
                 <button onclick="showPublicView()" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                     Back to Home
@@ -203,7 +201,6 @@
             </div>
         </div>
         
-        <!-- New page for Bike Bandits content -->
         <div id="bike-bandits-view" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Bike Bandits</h2>
             <div class="flex flex-col items-center">
@@ -211,14 +208,7 @@
                 
                 <div id="videoLinksContainer" class="w-full max-w-xl space-y-4">
                     <p class="text-center text-gray-500">Content for this section is coming soon!</p>
-                    <!-- 
-                        You can add your video links here later. 
-                        For example:
-                        <a href="URL_TO_SHORT_FILM" target="_blank" class="block text-center font-bold text-xl p-4 bg-gray-100 rounded-lg hover:bg-gray-200">Short Film</a>
-                        <a href="URL_TO_TRAILER" target="_blank" class="block text-center font-bold text-xl p-4 bg-gray-100 rounded-lg hover:bg-gray-200">Trailer</a>
-                        ...and so on.
-                    -->
-                </div>
+                    </div>
             </div>
             <div class="mt-8 pt-6 border-t border-gray-200 text-center">
                 <button onclick="showProjectsView()" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
@@ -226,12 +216,9 @@
                 </button>
             </div>
         </div>
-        <!-- End new page -->
-
         <div id="blog-view" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Studio Blog</h2>
             <div id="blogContainer" class="flex flex-col items-center space-y-8">
-                <!-- Blog posts will be loaded here dynamically -->
                 <div class="flex justify-center items-center h-48">
                     <div class="w-16 h-16 border-4 border-gray-200 border-t-red-600 rounded-full animate-spin"></div>
                 </div>
@@ -246,8 +233,7 @@
         <div id="gallery-view" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Photo Gallery</h2>
             <div id="galleryContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <!-- Gallery images will be loaded here dynamically -->
-            </div>
+                </div>
             <div class="mt-8 pt-6 border-t border-gray-200 text-center">
                 <button onclick="showPublicView()" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                     Back to Home
@@ -379,28 +365,28 @@
         const projects = [
             {
                 title: "Bike Bandits",
-                year: 2024,
+                year: 2025,
                 description: "Our latest short film project, currently in production.",
                 viewId: "bike-bandits-view",
                 thumbnail: "images/video_placehold.png"
             },
             {
                 title: "MCR: A Short Film",
-                year: 2023,
+                year: 2025,
                 description: "A thrilling short film exploring a tense standoff. Made in 2023.",
                 youtubeUrl: "https://youtu.be/kSL0ma11K5A?si=648oA3TVukqFAXB",
                 thumbnail: "https://i.ytimg.com/vi/kSL0ma11K5A/mqdefault.jpg"
             },
             {
                 title: "Top Gun (Clean Version)",
-                year: 2022,
+                year: 2025,
                 description: "A fun parody of the classic film, recut for a family-friendly audience.",
                 youtubeUrl: "https://youtu.be/MURjoBiJ1BI?si=KFyVkXH93ANzexq8",
                 thumbnail: "https://i.ytimg.com/vi/MURjoBiJ1BI/mqdefault.jpg"
             },
             {
                 title: "Foux Da Fa Fa",
-                year: 2021,
+                year: 2025,
                 description: "A comedic tribute to the TV show 'Flight of the Conchords.'",
                 youtubeUrl: "https://youtu.be/pyz3HLDYdRE?si=fH-zCpbSplI99_w0",
                 thumbnail: "https://i.ytimg.com/vi/pyz3HLDYdRE/mqdefault.jpg"
@@ -891,7 +877,7 @@
                 if (e.key === 'Enter') handleLogin();
             });
             if (DOMElements.addFolderBtn) DOMElements.addFolderBtn.addEventListener('click', handleAddFolder);
-            if (DOMElements.addLinkBtn) DOMEElements.addLinkBtn.addEventListener('click', handleAddLink);
+            if (DOMElements.addLinkBtn) DOMElements.addLinkBtn.addEventListener('click', handleAddLink);
             if (DOMElements.backButton) DOMElements.backButton.addEventListener('click', handleGoBack);
             if (DOMElements.logoutButton) DOMElements.logoutButton.addEventListener('click', handleLogout);
             DOMElements.searchInput.addEventListener('input', render);
