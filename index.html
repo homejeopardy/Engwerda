@@ -201,6 +201,19 @@
             </div>
         </div>
         
+        <div id="project-detail-view" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-lg">
+            <h2 id="project-title" class="text-3xl font-bold text-red-800 mb-4 text-center"></h2>
+            <p id="project-description" class="text-lg text-gray-700 mb-6 text-center"></p>
+            <div class="flex justify-center items-center mb-6">
+                <iframe id="project-video-player" class="w-full aspect-video rounded-lg shadow-md" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                <button onclick="showProjectsView()" class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                    Back to Filmography
+                </button>
+            </div>
+        </div>
+
         <div id="bike-bandits-view" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-lg">
             <h2 class="text-3xl font-bold text-red-800 mb-6 text-center">Bike Bandits</h2>
             <div class="flex flex-col items-center">
@@ -375,6 +388,7 @@
                 year: 2025,
                 description: "A thrilling short film exploring a tense standoff. Made in 2023.",
                 youtubeUrl: "https://youtu.be/kSL0ma11K5A",
+                youtubeId: "kSL0ma11K5A",
                 thumbnail: "https://i.ytimg.com/vi/kSL0ma11K5A/mqdefault.jpg"
             },
             {
@@ -382,6 +396,7 @@
                 year: 2025,
                 description: "A fun parody of the classic film, recut for a family-friendly audience.",
                 youtubeUrl: "https://youtu.be/MURjoBiJ1BI",
+                youtubeId: "MURjoBiJ1BI",
                 thumbnail: "https://i.ytimg.com/vi/MURjoBiJ1BI/mqdefault.jpg"
             },
             {
@@ -389,6 +404,7 @@
                 year: 2025,
                 description: "A comedic tribute to the TV show 'Flight of the Conchords.'",
                 youtubeUrl: "https://youtu.be/pyz3HLDYdRE",
+                youtubeId: "pyz3HLDYdRE",
                 thumbnail: "https://i.ytimg.com/vi/pyz3HLDYdRE/mqdefault.jpg"
             },
             {
@@ -396,6 +412,7 @@
                 year: 2024,
                 description: "The highly anticipated sequel to the original.",
                 youtubeUrl: "https://www.youtube.com/watch?v=aSm6JbGi3Io&t=8s",
+                youtubeId: "aSm6JbGi3Io",
                 thumbnail: "https://i.ytimg.com/vi/aSm6JbGi3Io/mqdefault.jpg"
             },
             {
@@ -403,6 +420,7 @@
                 year: 2023,
                 description: "A thrilling sci-fi adventure.",
                 youtubeUrl: "https://www.youtube.com/watch?v=1ATgNuUh-fg&t=10s",
+                youtubeId: "1ATgNuUh-fg",
                 thumbnail: "https://i.ytimg.com/vi/1ATgNuUh-fg/mqdefault.jpg"
             }
         ];
@@ -417,7 +435,7 @@
         // --- VIEW MANAGEMENT & AUTHENTICATION ---
         
         function showView(viewId) {
-            const views = ['public-view', 'blog-view', 'login', 'content-view', 'gallery-view', 'projects-view', 'bike-bandits-view'];
+            const views = ['public-view', 'blog-view', 'login', 'content-view', 'gallery-view', 'projects-view', 'bike-bandits-view', 'project-detail-view'];
             views.forEach(id => {
                 const viewElement = document.getElementById(id);
                 if (viewElement) {
@@ -448,6 +466,14 @@
         function showProjectsView() {
             showView('projects-view');
             renderProjectsToContainer('projectsContainer');
+        }
+
+        function showProjectDetails(project) {
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-description').textContent = project.description;
+            const videoUrl = `https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&rel=0`;
+            document.getElementById('project-video-player').src = videoUrl;
+            showView('project-detail-view');
         }
 
         function showLoginModal() {
@@ -563,9 +589,21 @@
 
             projectsToRender.forEach(project => {
                 const isLatest = containerId === 'latestProjectsContainer';
-                const linkHref = project.youtubeUrl ? project.youtubeUrl : `#${project.viewId}`;
-                const clickHandler = project.viewId ? `showView('${project.viewId}')` : '';
-                const linkTarget = project.youtubeUrl ? '_blank' : '';
+                let linkHref = project.youtubeUrl ? project.youtubeUrl : `#${project.viewId}`;
+                let clickHandler = '';
+                let linkTarget = '_self'; // Default to a new page
+                
+                if (project.viewId) {
+                    clickHandler = `showView('${project.viewId}')`;
+                    linkTarget = '_self';
+                } else if (project.youtubeId) {
+                    clickHandler = `showProjectDetails(projects.find(p => p.youtubeId === '${project.youtubeId}'))`;
+                    linkTarget = '_self';
+                    linkHref = '#';
+                } else if (project.youtubeUrl) {
+                    linkTarget = '_blank';
+                }
+
                 
                 // This is the HTML structure for a single project card
                 const projectCardHtml = `
